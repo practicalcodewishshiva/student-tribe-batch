@@ -1,0 +1,45 @@
+/* Global CSS STYLE FILE */
+
+body {
+  content: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* 
+EVENTS 
+
+
+ONCHANGE.  100%
+
+everyitme data will update or frequrently 
+
+ONCLICK 100%
+
+ EVENTS 
+
+
+
+ BROWSER
+
+ const name = "shiva"
+FUNcTION ONCLICK(){
+    object way lo neku data share chesta 
+
+    type of data 
+
+    click button --- onCLick
+
+    something chnage text ----- onChange
+    console.log("clicked",name )
+}
+
+ JS KONNI METHODS
+
+
+
+
+ /* mouseDown
+ mouseUp
+ /* tab */ 
