@@ -1,9 +1,20 @@
 import React, { useState } from "react";
+import axios from "axios";
 import "./App.css";
+import {BrowserRouter, BrowserRoutes, Route, Router} from 'react-router-dom';
+
+{/* <BrowserRouter>
+<Router>
+
+  <Route path="/" element={}
+</Router>
+</BrowserRouter> */}
 function App() {
   // const userName = "hello this is userName"
   const [UserName, updateUserName] = useState("");
-  const[password,updatePassword]=useState("")
+  const [password, updatePassword] = useState("");
+
+  const [userCredentials, setUserCredentials] = useState("");
 
   //Mrunal
   //Nidhi
@@ -52,40 +63,65 @@ function App() {
     // }
 
     // return getOutOfMyStudio
-
-
-
   }
 
-
   // handleUserName.getOutOfMyStudio()
-
 
   // closures
 
   function handlePassword(event) {
     console.log("passweord", event.target.value);
-    updatePassword(event.target.value)
+    updatePassword(event.target.value);
   }
 
   function handleLogin() {
+    debugger;
     console.log("clicked", UserName);
-    console.log('clicked',password)
+    console.log("clicked", password);
+    // axios
+    // library axios middleware   frontend -------Middleware -------- backend
+    // new Promise((res, rej) => {
+    //   if (res) {
+    //     success();
+    //   } else {
+    //     rej;
+    //   }
+    // });
 
+
+    try {
+      axios
+        .post("http://localhost:5500/login", {
+          email: UserName,
+          password: password,
+        })
+
+        // res.data
+        .then((res) => setUserCredentials(res));
+    } catch (error) {
+      alert(error);
+    }
+
+    if(userCredentials.status===200){
+      // dashboard oka way
+    }
   }
+
+  // Promises
+
+  // Async await
 
   return (
     <>
       <div className="flex-container">
         <div className="login-form-container">
-          <div>Login Form</div>
+          <div>Login Form {userCredentials.message}</div>
           <label>UserName</label>
           <input type="text" onChange={handleUserName} value={UserName} />
           <label>Password</label>
           <input type="password" value={password} onChange={handlePassword} />
           <button onClick={handleLogin}>Login</button>
-          hello username {UserName}
-          password {password}
+          
         </div>
       </div>
     </>
@@ -93,6 +129,14 @@ function App() {
 }
 
 export default App;
+
+
+
+
+
+
+
+
 
 // onChange(function handleUserName (event){
 // return event
