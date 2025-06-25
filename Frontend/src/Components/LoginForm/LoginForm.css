@@ -1,0 +1,24 @@
+.login-form-container {
+  display: flex;
+  flex-direction: column;
+}
+input {
+  width: 250px;
+}
+
+button {
+  background-color: #ff5722;
+  color: white;
+
+  margin-top: 10px;
+  border: 1px solid white;
+  border-radius: 3px;
+  padding: 5px;
+  width: 258px;
+}
+
+
+.flex-container{
+    display: flex;
+    justify-content: center;
+}
